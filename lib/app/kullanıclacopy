@@ -1,0 +1,94 @@
+// ignore_for_file: prefer_const_constructors
+/*
+import 'package:flutter/material.dart';
+import 'package:ilkvisual/app/konusma.dart';
+import 'package:ilkvisual/app/profilsayfasi.dart';
+import 'package:ilkvisual/model/user.dart';
+import 'package:provider/provider.dart';
+
+import '../viewmodels/usermodel.dart';
+import 'örnek_page1.dart';
+
+class KullanicilarPAge extends StatefulWidget {
+  const KullanicilarPAge({super.key});
+
+  @override
+  State<KullanicilarPAge> createState() => _KullanicilarPAgeState();
+}
+
+class _KullanicilarPAgeState extends State<KullanicilarPAge> {
+  @override
+  Widget build(BuildContext context) {
+    UserModel _usermodel = Provider.of<UserModel>(context);
+    _usermodel.getAllUsers();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Kullanicilar"),
+        actions: [
+          IconButton(
+              onPressed: (() {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: ((context) => OrnekPage1())));
+              }),
+              icon: Icon(Icons.add))
+        ],
+      ),
+      body: FutureBuilder<List<User1>?>(
+        future: _usermodel.getAllUsers(),
+        builder: ((context, snapshot) {
+          if (snapshot.hasData) {
+            var tumKullaniclar = snapshot.data;
+            if (tumKullaniclar!.length - 1 > 0) {
+              return RefreshIndicator(
+                onRefresh: _kullanicilarListGuncelle,
+                child: ListView.builder(
+                  itemCount: tumKullaniclar.length,
+                  itemBuilder: (context, index) {
+                    var currentUser = snapshot.data![index];
+                    if (currentUser.userID != _usermodel.user!.userID) {
+                      //eger usermodelde açılmış hesap yani uygulamada acılmı hesap sonuca esit değilse
+                      return GestureDetector(
+                        onTap: (() {
+                          // rootNavigator: true değeri olursa tab bar gözükmüyor
+                          Navigator.of(context, rootNavigator: true)
+                              .push(MaterialPageRoute(
+                                  builder: ((context) => Konusma(
+                                        currentUser: _usermodel.user,
+                                        sohbetedilenUser: currentUser,
+                                      ))));
+                        }),
+                        child: ListTile(
+                          title: Text(stringNulltoString(currentUser.userName)),
+                          subtitle: Text(stringNulltoString(currentUser.email)),
+                          leading: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                            stringNulltoString(currentUser.profilUrl),
+                          )),
+                        ),
+                      );
+                    } else {
+                      return Container();
+                    }
+                  },
+                ),
+              );
+            } else {
+              //refresh eklenebilir
+              return Center(
+                child: Text("Kullanıcı yok"),
+              );
+            }
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        }),
+      ),
+    );
+  }
+
+  Future<Null> _kullanicilarListGuncelle() async {
+    setState(() {});
+    await Future.delayed(Duration(seconds: 1));
+    return null;
+  }
+}*/
